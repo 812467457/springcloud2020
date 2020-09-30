@@ -64,4 +64,14 @@ public class PaymentController {
 
         return this.discoveryClient;
     }
+
+    @GetMapping("/provider/feign/timeout")
+    public String feignTimeout(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
+    }
 }

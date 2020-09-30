@@ -40,4 +40,14 @@ public class PaymentController {
             return new CommonResult(500, "failed" + serverPort, null);
         }
     }
+
+    @GetMapping("/provider/feign/timeout")
+    public String feignTimeout(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
+    }
 }
