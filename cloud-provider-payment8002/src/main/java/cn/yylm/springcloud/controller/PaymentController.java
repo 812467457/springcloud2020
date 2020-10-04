@@ -29,7 +29,10 @@ public class PaymentController {
             return new CommonResult(500, "failed" + serverPort);
         }
     }
-
+    @GetMapping("/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
     @GetMapping("/payment/get/{id}")
     @ResponseBody
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
