@@ -33,6 +33,7 @@ public class OrderController {
 
     /**
      * getForObject 返回的是一个json
+     *
      * @param id
      * @return
      */
@@ -43,6 +44,7 @@ public class OrderController {
 
     /**
      * getForEntity 返回的是一个ResponseEntity对象，包含信息（消息头、状态码、响应体等）
+     *
      * @param id
      * @return
      */
@@ -52,7 +54,13 @@ public class OrderController {
         if (entity.getStatusCode().is2xxSuccessful()) {
             return entity.getBody();
         } else {
-            return new CommonResult<>(404,"操作失败");
+            return new CommonResult<>(404, "操作失败");
         }
     }
+
+    @GetMapping("/consumer/payment/zipkin")
+    public String getZipkin() {
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin/", String.class);
+    }
 }
+A

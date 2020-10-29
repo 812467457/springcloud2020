@@ -26,6 +26,7 @@ eureka:
 
 
 # 暴露bus刷新配置的端点
+# 使用curl -X POST "http://localhost:3366/actuator/bus-refresh" 命令刷新配置中心，可以动态刷新全局广播配置
 management:
   endpoints:
     web:
